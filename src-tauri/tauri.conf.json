@@ -31,7 +31,7 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "category": "PublicAppCategory",
+    "category": "Business",
     "shortDescription": "FBLA Byte-Sized Business Boost - Local Business Discovery Platform",
     "longDescription": "A comprehensive desktop application for discovering and supporting local businesses. Features include business search, reviews, deals, favorites, and intelligent recommendations built for the FBLA Coding & Programming competition.",
     "macOS": {
