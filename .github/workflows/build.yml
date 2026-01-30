@@ -1,10 +1,6 @@
 name: Build and Release
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   release:
     types: [ published ]
 
@@ -46,21 +42,10 @@ jobs:
     - name: Build the app
       run: npm run tauri build
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ matrix.platform }}-build
-        path: |
-          src-tauri/target/release/bundle/
-          src-tauri/target/bundle/
-
-    - name: Release (only on tag)
-      if: github.event_name == 'release'
+    - name: Upload artifacts to release
       uses: softprops/action-gh-release@v1
       with:
         files: |
           src-tauri/target/release/bundle/**/*
-        draft: false
-        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
