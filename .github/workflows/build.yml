@@ -38,6 +38,7 @@ jobs:
           src-tauri/target/release/bundle/**/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: startsWith(github.ref, 'refs/tags/')
 
   build-windows:
     runs-on: windows-latest
@@ -72,6 +73,7 @@ jobs:
           src-tauri/target/release/bundle/**/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: startsWith(github.ref, 'refs/tags/')
 
   build-linux:
     runs-on: ubuntu-latest
@@ -112,3 +114,4 @@ jobs:
           src-tauri/target/release/bundle/**/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: startsWith(github.ref, 'refs/tags/')
