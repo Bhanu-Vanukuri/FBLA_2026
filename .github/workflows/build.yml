@@ -34,11 +34,12 @@ jobs:
     - name: Build the app
       run: npm run tauri build
 
-    - name: Upload artifacts to release
+    - name: Upload macOS artifacts
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          src-tauri/target/release/bundle/**/*
+          src-tauri/target/release/bundle/dmg/**
+          src-tauri/target/release/bundle/macos/**
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -68,11 +69,12 @@ jobs:
     - name: Build the app
       run: npm run tauri build
 
-    - name: Upload artifacts to release
+    - name: Upload Windows artifacts
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          src-tauri/target/release/bundle/**/*
+          src-tauri/target/release/bundle/msi/**
+          src-tauri/target/release/bundle/nsis/**
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -108,10 +110,11 @@ jobs:
     - name: Build the app
       run: npm run tauri build
 
-    - name: Upload artifacts to release
+    - name: Upload Linux artifacts
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          src-tauri/target/release/bundle/**/*
+          src-tauri/target/release/bundle/appimage/**
+          src-tauri/target/release/bundle/deb/**
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN || secrets.GITHUB_TOKEN }}
